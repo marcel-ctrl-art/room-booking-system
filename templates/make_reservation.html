@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<div>
+  <p>{{ room.name }}</p>
+  <p>{{ msg }}</p>
+</div>
+
+<div>
+<form method="POST">
+  {% csrf_token %}
+  <input type="date" name="booking_date">
+  <input type="text" name="comment">
+  <input type="submit" name="book" value="Book">
+</form>
+</div>
+
+{% endblock %}
