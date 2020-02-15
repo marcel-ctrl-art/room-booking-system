@@ -46,3 +46,20 @@ class MakeReservationView(View):
                 }
 
         return render(request, template_name, ctx)
+
+
+
+class CreateRoomView(View):
+    def get(self, request):
+        template_name = 'create_room.html'
+        form = CreateRoomForm
+        return render(request, template_name, {'form': form})
+
+    def post(self, request):
+        template_name = 'create_room.html'
+        form = CreateRoomForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+        return render(request, template_name, {'form': form})
