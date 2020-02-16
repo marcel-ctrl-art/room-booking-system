@@ -8,17 +8,17 @@
       <th scope="col">Room Name</th>
       <th scope="col">Capacity</th>
       <th scope="col">Projector</th>
-      <th scope="col">Status</th>
+      <th scope="col">Today's Status</th>
     </tr>
   </thead>
     {% for room in rooms %}
   <tbody>
     <tr>
-        <td>{{ forloop.counter }}</td>
-        <td bgcolor='{% cycle "silver" "lightgray" %}'>{{ room.name }}</td>
-        <td>{{ room.capacity }}</td>
-        <td>{{ room.has_projector }}</td>
-        <td>{{ status }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ forloop.counter }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'><a href="{% url 'room_details' room.pk %}">{{ room.name }}</a></td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.capacity }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.has_projector }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ status }}</td>
     </tr>
   </tbody>
   {% endfor %}
