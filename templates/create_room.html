@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
+
+<h3 class="mt-5">You are about to add a New Room to our Database.</h3>
+<p>{{ msg }}</p>
 <form method="POST">
   {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Add New Room" name="adding">
+  {{ form|crispy }}
+  <input class="btn btn-outline-success float-right" type="submit" value="Add New Room" name="adding">
 </form>
 {% endblock %}
