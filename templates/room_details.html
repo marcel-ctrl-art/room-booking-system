@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+<div class="container mt-5">
+  <h3 class="mb-4">Room Details:</h3>
+  <p>NAME: {{ room.name }}</p>
+  <p>CAPACITY: {{ room.capacity }}</p>
+  <p>PROJECTOR: {{ room.has_projector }}</p>
+</div>
+{% endblock %}
