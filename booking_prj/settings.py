@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'booking_system',
 
     #3rd Party
-    'crispy-forms',
+    'crispy_forms',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
