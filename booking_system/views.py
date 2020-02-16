@@ -64,6 +64,8 @@ class CreateRoomView(View):
         form = CreateRoomForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            name = form.cleaned_data['name']
+            capacity = form.cleaned_data['capacity']
+            has_projector = form.cleaned_data['has_projector']
 
         return render(request, template_name, {'form': form})
