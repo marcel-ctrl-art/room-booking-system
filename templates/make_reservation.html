@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div>
@@ -7,12 +9,14 @@
   <p>{{ msg }}</p>
 </div>
 
-<div>
+<div class="container mt-5">
 <form method="POST">
   {% csrf_token %}
-  <input type="date" name="booking_date">
-  <input type="text" name="comment">
-  <input type="submit" name="book" value="Book">
+  <label for="day">Date:</label>
+  <input type="date" name="booking_date" id="day">
+  <label for="info">Description:</label>
+  <input type="text" name="comment" id="info"><br>
+  <input class="btn btn-outline-success mt-5" type="submit" name="book" value="Book">
 </form>
 </div>
 
