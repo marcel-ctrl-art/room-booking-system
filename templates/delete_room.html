@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <p class="mt-5">{{ msg }}</p>
+  <input class="btn btn-outline-danger" type="submit" name="delete" value="Delete">
+  <button class="btn btn-outline-success" name="no_delete" type="submit"><a href="{% url 'rooms_list' %}">Go Back</a></button>
+</form>
+{% endblock %}
