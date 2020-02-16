@@ -4,7 +4,11 @@
 <div class="container mt-5">
   <h3 class="mb-4">Room Details:</h3>
   <p>NAME: {{ room.name }}</p>
-  <p>CAPACITY: {{ room.capacity }}</p>
+  <p>CAPACITY: {{ room.capacity }} seats</p>
   <p>PROJECTOR: {{ room.has_projector }}</p>
+</div>
+<div class="container mt-5">
+  <button class="btn btn-outline-success"><a href="{% url 'booking' room.pk %}">Book</a></button>
+  <button class="btn btn-outline-danger"><a href="{% url 'delete_room' room.pk %}">Delete</a></button>
 </div>
 {% endblock %}
