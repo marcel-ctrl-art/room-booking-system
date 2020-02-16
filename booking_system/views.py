@@ -3,6 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.views.generic import TemplateView
 import datetime
 
 from .forms import CreateRoomForm
@@ -164,8 +165,18 @@ class DeleteRoomView(View):
 
 
 class DeletedRoomView(View):
-    """A view after the model instance has been successfully deleted."""
+    """A view deleting a model instance."""
 
     def get(self, request):
         tempalte_name = 'deleted_room_view.html'
         return render(request, tempalte_name)
+
+
+class SearchRoomView(View):
+
+    def get(self, request):
+        pass
+
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
