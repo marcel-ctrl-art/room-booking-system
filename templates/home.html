@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Welcome to the Booking System!</h1>
+    <p>Browse through the database of our different rooms and suites and you will surely find one that suits your needs.</p>
+    <p><a class="btn btn-outline-success btn-lg" href="{% url 'rooms_list' %}" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+{% endblock %}
