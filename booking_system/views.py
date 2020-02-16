@@ -1,20 +1,23 @@
 from dateutil import parser
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 import datetime
+
 from .forms import CreateRoomForm
 from .models import Room, Booking
 
 
 class MakeReservationView(View):
+    """Book a particular room for a selected day."""
+
     def get(self, request, id):
         room = get_object_or_404(Room, pk=id)
         template_name = 'make_reservation.html'
         ctx = {
             'room': room
         }
-
         return render(request, template_name, ctx)
 
     def post(self, request, id):
@@ -48,8 +51,9 @@ class MakeReservationView(View):
         return render(request, template_name, ctx)
 
 
-
 class CreateRoomView(View):
+    """Add a new room to the database."""
+
     def get(self, request):
         template_name = 'create_room.html'
         form = CreateRoomForm
