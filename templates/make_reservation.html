@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div>
+<div class="container mt-5">
   <p>{{ room.name }}</p>
   <p>{{ msg }}</p>
 </div>
@@ -16,7 +16,7 @@
   <input type="date" name="booking_date" id="day">
   <label for="info">Description:</label>
   <input type="text" name="comment" id="info"><br>
-  <input class="btn btn-outline-success mt-5" type="submit" name="book" value="Book">
+  <input class="btn btn-outline-success mt-5 float-right" type="submit" name="book" value="Book">
 </form>
 </div>
 
