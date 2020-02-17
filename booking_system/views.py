@@ -37,7 +37,7 @@ class MakeReservationView(View):
                         comment=request.POST.get('comment'),
                         room=room)
                     ctx = {
-                        'msg': f"""You've successfully booked a room {room.name} 
+                        'msg': f"""You've successfully booked: {room.name} 
                                     for {parser.parse(request.POST.get('booking_date')).date()}."""
                     }
                 else:
@@ -122,11 +122,11 @@ class AllRoomsView(View):
     def get(self, request):
         rooms = Room.objects.all().order_by('name')
         template_name = 'all_rooms.html'
-        today = datetime.datetime.now().date()
+        today = datetime.date.today()
 
         for room in rooms:
             try:
-                Booking.objects.get(date=today).filter(room=room)
+                Booking.objects.filter(date=today, room=room)
             except ObjectDoesNotExist:
                 status = 'available'
             else:
