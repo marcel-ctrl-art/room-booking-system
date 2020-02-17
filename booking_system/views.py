@@ -6,7 +6,7 @@ from django.views import View
 from django.views.generic import TemplateView
 import datetime
 
-from .forms import CreateRoomForm
+from .forms import CreateRoomForm, SearchRoomForm
 from .models import Room, Booking
 
 
