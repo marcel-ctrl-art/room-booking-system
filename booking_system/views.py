@@ -175,7 +175,25 @@ class DeletedRoomView(View):
 class SearchRoomView(View):
 
     def get(self, request):
-        pass
+        template_name = 'search_room.html'
+        form = SearchRoomForm(request.GET)
+        rooms = []
+        msg = ""
+
+        # searching by room's name
+        name = request.GET.get('name')
+        if name:
+            try:
+                rooms = Room.objects.filter(name__icontains=name)
+            except ObjectDoesNotExist:
+                msg = "No such room."
+
+        ctx = {
+            'msg': msg,
+            'rooms': rooms,
+            'form': form,
+        }
+        return render(request, template_name, ctx)
 
 
 class HomeView(TemplateView):
