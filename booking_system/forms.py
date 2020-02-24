@@ -12,4 +12,4 @@ class CreateRoomForm(ModelForm):
 class SearchRoomForm(ModelForm):
     class Meta:
         model = Room
-        fields = ['name']
+        fields = '__all__'
