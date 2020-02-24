@@ -1,11 +1,13 @@
 from dateutil import parser
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import ListView, TemplateView
 import datetime
 
+from .filters import RoomFilter
 from .forms import CreateRoomForm, SearchRoomForm
 from .models import Room, Booking
 
@@ -168,33 +170,19 @@ class DeletedRoomView(View):
     """A view deleting a model instance."""
 
     def get(self, request):
-        tempalte_name = 'deleted_room_view.html'
-        return render(request, tempalte_name)
-
-
-class SearchRoomView(View):
-
-    def get(self, request):
-        template_name = 'search_room.html'
-        form = SearchRoomForm(request.GET)
-        rooms = []
-        msg = ""
-
-        # searching by room's name
-        name = request.GET.get('name')
-        if name:
-            try:
-                rooms = Room.objects.filter(name__icontains=name)
-            except ObjectDoesNotExist:
-                msg = "No such room."
-
-        ctx = {
-            'msg': msg,
-            'rooms': rooms,
-            'form': form,
-        }
-        return render(request, template_name, ctx)
+        template_name = 'deleted_room_view.html'
+        return render(request, template_name)
 
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+
+
+class SearchRoomView(ListView):
+    model = Room
+    template_name = 'search_room.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = RoomFilter(self.request.GET, queryset=self.get_queryset())
+        return context
