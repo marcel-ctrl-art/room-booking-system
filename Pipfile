@@ -10,6 +10,8 @@ django = "*"
 psycopg2-binary = "*"
 python-dateutil = "*"
 django-crispy-forms = "*"
+django-filter = "*"
+django-bootstrap-form = "*"
 
 [requires]
 python_version = "3.6"
