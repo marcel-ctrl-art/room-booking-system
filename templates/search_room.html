@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mb-5 mt-5">
+  <form method="get">
+    {% csrf_token %}
+    {{ filter.form|crispy }}
+    <button class="btn btn-outline-primary float-right" type="submit">Search</button>
+  </form>
+</div>
+<div class="container mt-4 mb-4 float-center"><h3>Results:</h3></div>
+<div class="container mt-6">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Room Name</th>
+      <th scope="col">Capacity</th>
+      <th scope="col">Projector</th>
+    </tr>
+  </thead>
+    {% for room in filter.qs %}
+  <tbody>
+    <tr>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ forloop.counter }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'><a href="{% url 'room_details' room.pk %}">{{ room.name }}</a></td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.capacity }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.has_projector }}</td>
+    </tr>
+  </tbody>
+{% endfor %}
+</div>
+{% endblock %}
