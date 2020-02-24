@@ -9,6 +9,7 @@
       <th scope="col">Capacity</th>
       <th scope="col">Projector</th>
       <th scope="col">Today's Status</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
     {% for room in rooms %}
@@ -19,6 +20,14 @@
       <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.capacity }}</td>
       <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.has_projector }}</td>
       <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ status }}</td>
+      <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>
+        <button class="btn btn-warning">
+          <a href="{% url 'room_update' room.pk %}">Edit</a>
+        </button>
+        <button class="btn btn-outline-danger">
+          <a href="{% url 'delete_room' room.pk %}">Delete</a>
+        </button>
+      </td>
     </tr>
   </tbody>
   {% endfor %}
