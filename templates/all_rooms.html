@@ -21,6 +21,9 @@
       <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ room.has_projector }}</td>
       <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>{{ status }}</td>
       <td bgcolor='{% cycle "#f8f9fa" "#fff" %}'>
+        <button class="btn btn-outline-success">
+          <a href="{% url 'booking' room.pk %}">Book</a>
+        </button>
         <button class="btn btn-warning">
           <a href="{% url 'room_update' room.pk %}">Edit</a>
         </button>
