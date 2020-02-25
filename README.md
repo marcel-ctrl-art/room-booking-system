@@ -20,30 +20,32 @@ A simple web application for bookig rooms. Technologies used:
 
 # App screenshots:
 
-* Home
+Home
 
-![Home-view](screenshots/home-view.png)
+![Home](screenshots/home.png)
 
-* All rooms
+All rooms
 
-![List-view](screenshots/all-rooms.png)
-
-* Add room form
-
-![Add-room](screenshots/add-room.png)
+![Home](screenshots/all_rooms.png)
 
 
-* Book room view
+Add room form
 
-![Book-view](screenshots/book-view.png)
+![Home](screenshots/add.png)
 
-* Delete room
 
-![Delete-view](screenshots/delete-view.png)
+Book one room view
 
-* One room
+![Home](screenshots/one.png)
 
-![One-room](screenshots/one-room.png)
+
+Delete room
+
+![Home](screenshots/delete.png)
+
+Edit room
+
+![Home](screenshots/update.png)
 
 # Author
 
