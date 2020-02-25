@@ -1,6 +1,6 @@
 # Room booking project
 
-A simple web application for bookig rooms. Technologies used:<br> 
+A simple web application for bookig rooms. Technologies used:<br> <br>
 `Python`<br> 
 `Django` <br>
 `Postgresql` <br>
