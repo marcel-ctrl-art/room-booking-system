@@ -125,10 +125,11 @@ class AllRoomsView(View):
         rooms = Room.objects.all().order_by('name')
         template_name = 'all_rooms.html'
         today = datetime.date.today()
+        status = ''
 
         for room in rooms:
             try:
-                Booking.objects.filter(date=today, room=room)
+                Room.objects.get(Q(booking__date=datetime.datetime.now().date()) & Q(booking__room=room))
             except ObjectDoesNotExist:
                 status = 'available'
             else:
