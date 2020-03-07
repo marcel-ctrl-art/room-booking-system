@@ -28,6 +28,9 @@ All rooms
 
 ![Home](screenshots/all_rooms.png)
 
+Search rooms
+
+![Home](screenshots/search.png)
 
 Add room form
 
